@@ -67,6 +67,15 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 		}
 
 		// Simulate
+		unsigned int* pixel = (unsigned int*)buffer_memory;
+
+		for (int i = 0; i < buffer_height; i++)
+		{
+			for (int j = 0; j < buffer_width; j++)
+			{
+				*pixel++ = 0xff5500; // orange
+			}
+		}
 
 		//Render
 		StretchDIBits(hdc, 0, 0, buffer_width, buffer_height, 0, 0, buffer_width, buffer_height, buffer_memory, &buffer_bitmap_info, DIB_RGB_COLORS, SRCCOPY);
